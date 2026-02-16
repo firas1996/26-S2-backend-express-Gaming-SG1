@@ -1,3 +1,4 @@
+const { signUp } = require("../controllers/authController");
 const {
   createUser,
   getAllusers,
@@ -7,6 +8,8 @@ const {
 } = require("../controllers/userController");
 
 const router = require("express").Router();
+
+router.post("/signUp", signUp);
 
 router.route("/").post(createUser).get(getAllusers);
 router
