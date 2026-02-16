@@ -14,3 +14,21 @@ exports.createUser = async (req, res) => {
     });
   }
 };
+
+exports.getAllusers = async (req, res) => {
+  try {
+    const users = await User.find();
+    res.status(200).json({
+      message: "Users fetched !!!",
+      data: {
+        nbr: users.length,
+        users: users,
+      },
+    });
+  } catch (error) {
+    res.status(400).json({
+      message: "Fetching failed",
+      error: error.message,
+    });
+  }
+};
