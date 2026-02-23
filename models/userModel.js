@@ -55,6 +55,10 @@ userSchema.pre("save", async function (next) {
   return next;
 });
 
+userSchema.methods.checkPass = async function (hachedPass, pass) {
+  return await bcryptjs.compare(pass, hachedPass);
+};
+
 const User = model("User", userSchema);
 
 module.exports = User;
