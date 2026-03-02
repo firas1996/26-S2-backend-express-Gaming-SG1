@@ -44,3 +44,5 @@ exports.protectorMW = async (req, res, next) => {
     });
   }
 };
+
+exports.checkRoleMW = async (params) => {};
